@@ -30,3 +30,76 @@ export const Form = styled.form`
         flex-direction: column;
     }
 `;
+
+export const Main = styled.main`
+
+`;
+
+export const Fieldset = styled.fieldset`
+    border: none;
+
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+`;
+
+export const Data = styled.h3`
+    font: 700 2rem Roboto;
+    color: #322153;
+
+    margin-top: 2rem;
+`;
+
+export const UserContainer = styled.div`
+    width: 100%;
+
+    background: #FFF;
+    padding: 1rem 2rem;
+
+    margin-top: 2rem;
+
+    @media (max-width: 500px) {
+        width: 90vw;
+        max-width: 500px;
+    }
+`;
+
+export const HeaderUser = styled.div`
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        justify-content: center;
+    }
+`;
+
+export const Image = styled.img`
+    width: 5.4rem;
+    height: 5.4rem;
+
+    border-radius: 50%;
+`;
+
+export const Name = styled.span`
+    margin-left: 2rem;
+    font: 700 1.3rem Poppins;
+`;
+
+export const Bio = styled.p`
+    margin-top: 2rem;
+    font: 400 1rem Poppins;
+    color: #7E839D;
+`;
+
+export const Url = styled.p`
+    font: 400 1rem Poppins;
+    color: #7E839D;
+
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid #DDDDDF;
+
+    @media (max-width: 500px) {
+        font-size: 0.8rem;
+    }
+`;
