@@ -6,7 +6,9 @@ import Button from '../../components/Button';
 
 import { Container, Title, Text, Form, Main,
     Fieldset, Data, UserContainer, HeaderUser,
-    Image, Name, Bio, Url, MapContainer, Repos
+    Image, Name, Bio, Url, MapContainer, Repos,
+    ReposContainer, UserReposStarred, UserName,
+    RepoName
 } from './styles';
 
 export default function Home() {
@@ -82,7 +84,17 @@ export default function Home() {
             <Fieldset>
                 <Repos>Repositórios</Repos>
 
-                
+                <ReposContainer>
+                    <Image 
+                        src={'https://avatars3.githubusercontent.com/u/59968647?s=460&u=81b334046950db301a9c5a3cb0fe9b264a00c8d9&v=4'}
+                        alt="User"
+                    />
+
+                    <UserReposStarred>
+                        <UserName>maxdickinsondev</UserName>
+                        <RepoName>portfolio-reactjs</RepoName>
+                    </UserReposStarred>
+                </ReposContainer>
             </Fieldset>
         </Container>
     );

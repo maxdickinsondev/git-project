@@ -80,6 +80,11 @@ export const Image = styled.img`
 export const Name = styled.span`
     margin-left: 2rem;
     font: 700 1.3rem Poppins;
+
+    @media (max-width: 500px) {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
 `;
 
 export const Bio = styled.p`
@@ -110,4 +115,40 @@ export const Repos = styled.h3`
     color: #322153;
 
     margin-top: 2rem;
+`;
+
+export const ReposContainer = styled.div`
+    background: #FFFFFF;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
+`;
+
+export const UserReposStarred = styled.div`
+    margin-left: 2rem;
+
+    @media (max-width: 500px) {
+        margin-top: 0.8rem;
+        margin-left: 0;
+        text-align: center;
+    }
+`;
+
+export const UserName = styled.h3`
+    font: 700 1rem Poppins;
+`;
+
+export const RepoName = styled.span`
+    font: 400 0.9rem Poppins;
+    color: #7E839D;
 `;
