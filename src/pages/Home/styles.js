@@ -32,14 +32,11 @@ export const Form = styled.form`
 `;
 
 export const Main = styled.main`
-
+    margin-bottom: 2rem;
 `;
 
 export const Fieldset = styled.fieldset`
     border: none;
-
-    margin-top: 2rem;
-    margin-bottom: 5rem;
 `;
 
 export const Data = styled.h3`
@@ -102,4 +99,15 @@ export const Url = styled.p`
     @media (max-width: 500px) {
         font-size: 0.8rem;
     }
+`;
+
+export const MapContainer = styled.div`    
+    margin-top: 2rem;
+`;
+
+export const Repos = styled.h3`
+    font: 700 2rem Roboto;
+    color: #322153;
+
+    margin-top: 2rem;
 `;

@@ -8,7 +8,9 @@ export const Container = styled.div`
     }
 `;
 
-export const ButtonSubmit = styled.button`
+export const ButtonSubmit = styled.button.attrs({
+    type: "submit"
+})`
     background: ${props => props.background};
     border: none;
     border-radius: 0.4rem;

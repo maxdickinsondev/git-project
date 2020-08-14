@@ -1,11 +1,12 @@
 import React from 'react';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 import { Container, Title, Text, Form, Main,
     Fieldset, Data, UserContainer, HeaderUser,
-    Image, Name, Bio, Url
+    Image, Name, Bio, Url, MapContainer, Repos
 } from './styles';
 
 export default function Home() {
@@ -55,6 +56,33 @@ export default function Home() {
                         https://github.com/maxdickinsondev
                     </Url>
                 </UserContainer>
+            </Fieldset>
+
+            <Fieldset>
+                <Data>Endereço</Data>
+
+                <MapContainer>
+                    <Map
+                        style={{ width: '100%', height: 300 }} 
+                        center={[-5.0728289, -37.9982411]} 
+                        zoom={15}
+                    >  
+                        <TileLayer
+                            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+
+                        <Marker position={[-5.0728289, -37.9982411]}>
+
+                        </Marker>
+                    </Map>
+                </MapContainer>
+            </Fieldset>
+
+            <Fieldset>
+                <Repos>Repositórios</Repos>
+
+                
             </Fieldset>
         </Container>
     );

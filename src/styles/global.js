@@ -19,6 +19,10 @@ export default createGlobalStyle`
 
     #root {
         margin-top: 136px;
+        
+        @media (max-width: 700px) {
+            margin-top: 100px;
+        }
     }
 
     body,
@@ -27,4 +31,6 @@ export default createGlobalStyle`
     textarea {
         font: 500 1.6rem Poppins;
     }
+
+    cursor: pointer;
 `;
