@@ -127,7 +127,7 @@ export const ReposContainer = styled.div`
     flex-direction: row;
 
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
     @media (max-width: 500px) {
         flex-direction: column;

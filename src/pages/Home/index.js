@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 
 import Input from '../../components/Input';
@@ -11,7 +11,60 @@ import { Container, Title, Text, Form, Main,
     RepoName
 } from './styles';
 
+import api from '../../services/api';
+import key from '../../utils/key.json';
+
 export default function Home() {
+    const [user, setUser] = useState({});
+    const [repoStarred, setRepoStarred] = useState([]);
+    const [username, setUsername] = useState('');
+
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
+
+    async function handleFetchDataUser(event) {
+        event.preventDefault();
+
+        try {
+            const response = await api.get(`${username}`);
+
+            console.log(response.data);
+            setUser(response.data);
+            setUsername('');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        async function handleFetchCordinatesUser() {
+            try {
+                const response = await api
+                    .get(`https://api.opencagedata.com/geocode/v1/json?q=${user.location}&key=${key.secret}`);
+                
+                setLatitude(response.data.results[0].geometry.lat);
+                setLongitude(response.data.results[0].geometry.lng);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        handleFetchCordinatesUser();
+    }, [user]);
+
+    useEffect(() => {
+        async function handleLoadRepoStarred() {
+            try {
+                const response = await api.get(`/${user.login}/starred`);
+                setRepoStarred(response.data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        handleLoadRepoStarred();
+    }, [user]);
+
     return (
         <Container>
             <Main>
@@ -19,11 +72,13 @@ export default function Home() {
 
                 <Text>Para começar precisamos que você informe algum usuário no campo abaixo</Text>
 
-                <Form>
+                <Form onSubmit={(event) => handleFetchDataUser(event)}>
                     <Input 
                         placeholder="maxdickinsondev"
                         background="#FFFFFF"
                         color="#7E839D"
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
                     />
 
                     <Button 
@@ -41,21 +96,18 @@ export default function Home() {
                 <UserContainer>
                     <HeaderUser>
                         <Image 
-                            src={'https://avatars3.githubusercontent.com/u/59968647?s=460&u=81b334046950db301a9c5a3cb0fe9b264a00c8d9&v=4'}
+                            src={user.avatar_url}
                             alt="User"
                         />
 
-                        <Name>maxdickinsondev</Name>
+                        <Name> {user.login} </Name>
                     </HeaderUser>
 
-                    <Bio>
-                        Apaixonado por programação, procuro estudar mais e mais a cada dia para resolver problemas e programar 
-                        soluções nas tecnologias mais atuais do mercado.
-                    </Bio>
+                    <Bio> {user.bio} </Bio>
 
                     <Url>
                         <br />
-                        https://github.com/maxdickinsondev
+                        {user.html_url}
                     </Url>
                 </UserContainer>
             </Fieldset>
@@ -66,7 +118,7 @@ export default function Home() {
                 <MapContainer>
                     <Map
                         style={{ width: '100%', height: 300 }} 
-                        center={[-5.0728289, -37.9982411]} 
+                        center={[latitude, longitude]} 
                         zoom={15}
                     >  
                         <TileLayer
@@ -74,7 +126,7 @@ export default function Home() {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
 
-                        <Marker position={[-5.0728289, -37.9982411]}>
+                        <Marker position={[latitude, longitude]}>
 
                         </Marker>
                     </Map>
@@ -84,17 +136,19 @@ export default function Home() {
             <Fieldset>
                 <Repos>Repositórios</Repos>
 
-                <ReposContainer>
-                    <Image 
-                        src={'https://avatars3.githubusercontent.com/u/59968647?s=460&u=81b334046950db301a9c5a3cb0fe9b264a00c8d9&v=4'}
-                        alt="User"
-                    />
+                {repoStarred.map(star => (
+                    <ReposContainer>
+                        <Image 
+                            src={star.owner.avatar_url}
+                            alt="User"
+                        />
 
-                    <UserReposStarred>
-                        <UserName>maxdickinsondev</UserName>
-                        <RepoName>portfolio-reactjs</RepoName>
-                    </UserReposStarred>
-                </ReposContainer>
+                        <UserReposStarred>
+                            <UserName> {star.owner.login} </UserName>
+                            <RepoName> {star.name} </RepoName>
+                        </UserReposStarred>
+                    </ReposContainer>
+                ))}
             </Fieldset>
         </Container>
     );
