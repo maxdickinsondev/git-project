@@ -3,6 +3,7 @@ import { Map, TileLayer, Marker } from 'react-leaflet';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Loading from '../../components/Loading';
 
 import { Container, Title, Text, Form, Main,
     Fieldset, Data, UserContainer, HeaderUser,
@@ -22,6 +23,9 @@ export default function Home() {
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
 
+    const [isClickSearch, setIsclickSeach] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     async function handleFetchDataUser(event) {
         event.preventDefault();
 
@@ -31,6 +35,7 @@ export default function Home() {
             console.log(response.data);
             setUser(response.data);
             setUsername('');
+            setIsclickSeach(true);
         } catch (err) {
             console.log(err);
         }
@@ -55,8 +60,12 @@ export default function Home() {
     useEffect(() => {
         async function handleLoadRepoStarred() {
             try {
+                setLoading(true);
+
                 const response = await api.get(`/${user.login}/starred`);
+
                 setRepoStarred(response.data);
+                setLoading(false);
             } catch (err) {
                 console.log(err);
             }
@@ -64,6 +73,8 @@ export default function Home() {
 
         handleLoadRepoStarred();
     }, [user]);
+
+    if (loading) return <Loading type="spin" color="#34CB79" />
 
     return (
         <Container>
@@ -74,7 +85,7 @@ export default function Home() {
 
                 <Form onSubmit={(event) => handleFetchDataUser(event)}>
                     <Input 
-                        placeholder="maxdickinsondev"
+                        placeholder="Digite um nome de usuário"
                         background="#FFFFFF"
                         color="#7E839D"
                         value={username}
@@ -90,66 +101,70 @@ export default function Home() {
                 </Form>
             </Main>
 
-            <Fieldset>
-                <Data>Dados</Data>
+            {isClickSearch ? (
+                <>
+                    <Fieldset>
+                        <Data>Dados</Data>
 
-                <UserContainer>
-                    <HeaderUser>
-                        <Image 
-                            src={user.avatar_url}
-                            alt="User"
-                        />
+                        <UserContainer>
+                            <HeaderUser>
+                                <Image 
+                                    src={user.avatar_url}
+                                    alt="User"
+                                />
 
-                        <Name> {user.login} </Name>
-                    </HeaderUser>
+                                <Name> {user.login} </Name>
+                            </HeaderUser>
 
-                    <Bio> {user.bio} </Bio>
+                            <Bio> {user.bio} </Bio>
 
-                    <Url>
-                        <br />
-                        {user.html_url}
-                    </Url>
-                </UserContainer>
-            </Fieldset>
+                            <Url>
+                                <br />
+                                {user.html_url}
+                            </Url>
+                        </UserContainer>
+                    </Fieldset>
 
-            <Fieldset>
-                <Data>Endereço</Data>
+                    <Fieldset>
+                        <Data>Endereço</Data>
 
-                <MapContainer>
-                    <Map
-                        style={{ width: '100%', height: 300 }} 
-                        center={[latitude, longitude]} 
-                        zoom={15}
-                    >  
-                        <TileLayer
-                            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
+                        <MapContainer>
+                            <Map
+                                style={{ width: '100%', height: 300 }} 
+                                center={[latitude, longitude]} 
+                                zoom={15}
+                            >  
+                                <TileLayer
+                                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
 
-                        <Marker position={[latitude, longitude]}>
+                                <Marker position={[latitude, longitude]}>
 
-                        </Marker>
-                    </Map>
-                </MapContainer>
-            </Fieldset>
+                                </Marker>
+                            </Map>
+                        </MapContainer>
+                    </Fieldset>
 
-            <Fieldset>
-                <Repos>Repositórios</Repos>
+                    <Fieldset>
+                        <Repos>Repositórios</Repos>
 
-                {repoStarred.map(star => (
-                    <ReposContainer>
-                        <Image 
-                            src={star.owner.avatar_url}
-                            alt="User"
-                        />
+                        {repoStarred.map(star => (
+                            <ReposContainer>
+                                <Image 
+                                    src={star.owner.avatar_url}
+                                    alt="User"
+                                />
 
-                        <UserReposStarred>
-                            <UserName> {star.owner.login} </UserName>
-                            <RepoName> {star.name} </RepoName>
-                        </UserReposStarred>
-                    </ReposContainer>
-                ))}
-            </Fieldset>
+                                <UserReposStarred>
+                                    <UserName> {star.owner.login} </UserName>
+                                    <RepoName> {star.name} </RepoName>
+                                </UserReposStarred>
+                            </ReposContainer>
+                        ))}
+                    </Fieldset>
+                </>
+            ) : null}
         </Container>
     );
 }
