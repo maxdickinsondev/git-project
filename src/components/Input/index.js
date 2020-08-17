@@ -6,6 +6,7 @@ export default function Input({ placeholder, background, color, value, onChange 
     return (
         <Container>
             <TextInput 
+                data-testid="field-input"
                 placeholder={placeholder}
                 background={background}
                 color={color}

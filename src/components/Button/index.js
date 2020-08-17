@@ -6,6 +6,7 @@ export default function Button({ background, color, children }) {
     return (
         <Container>
             <ButtonSubmit 
+                data-testid="btn-submit"
                 color={color}
                 background={background}
             > 
