@@ -63,3 +63,13 @@ Starting the development server...
 ```
 
 Dentro de alguns segundos o navegador será aberto exibindo a aplicação frontend.
+
+## Frameworks e ferramentas utilizadas
+
+- ReactJS
+- React Leaflet (pra utilização do mapa)
+- React Loading (loading de carregamento nas requisições do usuário)
+- React Toastify (notificações personalizadas para o usuário)
+- React Library Testing (para realização de testes dos componentes React)
+- Axios (requisições http na api)
+- Styled-Components (componentes estilizáveis no React)
