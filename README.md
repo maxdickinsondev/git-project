@@ -74,4 +74,4 @@ Dentro de alguns segundos o navegador será aberto exibindo a aplicação fronte
 - Axios (requisições http na api)
 - Styled-Components (componentes estilizáveis no React)
 
-*O aprendizado é contínuo e sempre vai existir um próximo nível* :rocket
+# O aprendizado é contínuo e sempre vai existir um próximo nível :rocket:
