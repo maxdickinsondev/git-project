@@ -22,3 +22,6 @@ https://www.figma.com/file/H0JygYf0Y50OhwcU7bQ2w3/GitHub-Project?node-id=2%3A2
 https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=YOUR-API-KEY
 ```
 
+5. Outro ponto que me fez sair também da zona de confoto foi a utilização de testes. Isso era algo que eu nunca havia feito em qualquer linguagem, e pra esse projeto decidi pesquisar sobre pra poder aplicar. Utilizei como ferramenta de teste o *React Libary Testing* que é uma biblioteca de testes que já vem integrada no pacote *create-react-app*.
+Particularmente falando achei muito interessante essa parte de testes, sei que ela á fundamental em qualquer projeto, isso vai procurar evitar muitos erros quando o sistema for pra produção. Tive algumas dificuldades já que era algo novo pra mim, mas no final conseguir realizar alguns testes simples já que o sistema proposto também é bem simples.
+
