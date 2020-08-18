@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 
 import Input from '../../components/Input';
@@ -29,15 +30,19 @@ export default function Home() {
     async function handleFetchDataUser(event) {
         event.preventDefault();
 
+        if (username.length === 0) {
+            toast.error('Ops, é necessário informar o nome de um usuário');
+            return;
+        }
+
         try {
             const response = await api.get(`${username}`);
-
-            console.log(response.data);
             setUser(response.data);
             setUsername('');
             setIsclickSeach(true);
         } catch (err) {
-            console.log(err);
+            toast.error('Desculpa, não encontramos o usuário :(');
+            setUsername('');
         }
     }
 
@@ -67,7 +72,7 @@ export default function Home() {
                 setRepoStarred(response.data);
                 setLoading(false);
             } catch (err) {
-                console.log(err);
+               
             }
         }
 
@@ -150,7 +155,7 @@ export default function Home() {
                         <Repos>Repositórios</Repos>
 
                         {repoStarred.map(star => (
-                            <ReposContainer>
+                            <ReposContainer key={star.id}>
                                 <Image 
                                     src={star.owner.avatar_url}
                                     alt="User"
