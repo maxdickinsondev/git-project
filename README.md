@@ -27,3 +27,33 @@ Particularmente falando achei muito interessante essa parte de testes, sei que e
 
 6. Por último, algo que tive mais dificuldade e passei um bom tempo pesquisando na documentação do github foi a parte de realizar autenticação para poder setar uma estrela em um repositório listado. Demorei um pouco pra encontrar os endpoints no qual seria possível realizar a autenticação. Esses endpoints ou rotas, recebiam vários paramêtros e pra isso foi necessário realizar algumas configurações no próproio github. De todos os requisitos pedidos, esse foi o único que não foi possível realizar a tempo. Até conseguir realizar autenticação com o github através do método *POST*, porém o problema foi a última requisição, a qual eu teria acesso aos dados do usuário, sem acesso a esses dados não foi então possível setar uma estrela pros repositórios listados.
 
+## Instalação e execução
+
+1. Dentro do terminal na sua máquina, navegue até a pasta onde deseja fazer o clone da aplicação, em seguida copie o código abaixo e tecle enter.
+
+```
+git clone https://github.com/maxdickinsondev/git-project
+```
+2. Após realizar o clone, navegue para a pasta **git-project** que acabou de ser criada.
+
+3. Agora, antes de execurtarmos o projeto precisamos instalar suas dependências através de um **gerenciador de pacotes**, o gerenciador que eu utilizei foi o **Yarn**, recomendo você instalar ele caso não tenha na sua máquina, é bem levinho.
+
+4. Com o **Yarn** instalado basta digitar o comando abaixo na pasta do projeto.
+
+```
+Yarn 
+```
+
+5. Prontinho, agora já podemos testar nossa aplicação rodando o script de execução, de acordo com o código abaixo:
+
+```
+yarn start
+```
+Após isso, teremos uma mensagem parecida com:
+
+```
+$ react-scripts start
+Starting the development server...
+```
+
+Dentro de alguns segundos o navegador será aberto exibindo a aplicação frontend.
