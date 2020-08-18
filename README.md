@@ -6,5 +6,7 @@
 
 ## Ideias e linha de raciocínio
 
-1. Primeiramente antes de desenvolver qualquer aplicação eu costumo desenvolver um protótipo de alta fidelidade para que eu possa ter um modelo para me basear e desenvolver a aplicação.
+1. Primeiramente antes de desenvolver qualquer aplicação eu costumo desenvolver um protótipo de alta fidelidade para que eu possa ter um modelo para me basear e desenvolver a aplicação. A ferramente de prototipação que eu utilizado é o Figma e o link do protótipo pode ser encontrado neste link: https://www.figma.com/file/H0JygYf0Y50OhwcU7bQ2w3/GitHub-Project?node-id=2%3A2
+
+2. 
 
