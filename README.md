@@ -73,3 +73,5 @@ Dentro de alguns segundos o navegador será aberto exibindo a aplicação fronte
 - React Library Testing (para realização de testes dos componentes React)
 - Axios (requisições http na api)
 - Styled-Components (componentes estilizáveis no React)
+
+*O aprendizado é contínuo e sempre vai existir um próximo nível* :rocket
