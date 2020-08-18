@@ -44,9 +44,6 @@ git clone https://github.com/maxdickinsondev/git-project
 yarn 
 ```
 ```
-ou
-```
-```
 npm install
 ```
 
@@ -54,9 +51,6 @@ npm install
 
 ```
 yarn start
-```
-```
-ou
 ```
 ```
 npm start
