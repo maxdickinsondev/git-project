@@ -12,5 +12,9 @@
 
 3. Como eu já havia desenvolvido aplicações com a api do github foi então bem rápido o desenvolvimento das funcionalidades de buscar os dados da api a partir do que o usuário digitou, exibir repositórios estrelados etx. Algo que me fez sair um pouco da zona de conforto foi a parte de exibir a localização do usuário no mapa. Eu já tinha trabalhado com mapa no React, porém a api do github fornece apenas o **nome da cidade** do usuário, e o mapa necessita dos valores de cordenada como **latitude e longitude**. Foi necessário então pesquisar na api do Google Maps um endpoint que convertesse o **address** pra **latitude e longitude**.
 
-4. Entretanto não tive resultados satisfatórios com a api do Google Maps, pesquisei, realizei bastante configurações pra poder ter acesso ao endpoint, e no fim das contas acabou não funcionando e decidi pesquisar outras api's que fosse possível converter o address para as cordenadas. E nisso acabei encontrando uma api muito boa e simples que necessita apenas criar uma **key** e passar no endpoint junto com o nome da cidade, e em seguida faço uma requisição e ela me retorna os valores de latitude e longitude. Após isso só precisaria aplicar esses valores no componente de mapa e já teríamos a localização do usuário bonitinha. Api utilizada para converter o endereço: https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=YOUR-API-KEY
+4. Entretanto não tive resultados satisfatórios com a api do Google Maps, pesquisei, realizei bastante configurações pra poder ter acesso ao endpoint, e no fim das contas acabou não funcionando. Decidi então pesquisar outras api's em que fosse possível converter o address para as cordenadas. E nisso acabei encontrando uma api muito boa e simples que necessita apenas criar uma **key** e passar no endpoint junto com o **nome da cidade**, em seguida faço uma requisição e ela me retorna os valores de latitude e longitude. Após isso só precisaria aplicar esses valores no componente de mapa e já teríamos a localização do usuário bonitinha. Api utilizada para converter o endereço: 
+
+```
+https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=YOUR-API-KEY
+```
 
