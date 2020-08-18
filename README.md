@@ -41,7 +41,7 @@ git clone https://github.com/maxdickinsondev/git-project
 4. Com o **Yarn** instalado basta digitar o comando abaixo na pasta do projeto.
 
 ```
-Yarn 
+yarn 
 ```
 
 5. Prontinho, agora já podemos testar nossa aplicação rodando o script de execução, de acordo com o código abaixo:
