@@ -36,12 +36,15 @@ git clone https://github.com/maxdickinsondev/git-project
 ```
 2. Após realizar o clone, navegue para a pasta **git-project** que acabou de ser criada.
 
-3. Agora, antes de execurtarmos o projeto precisamos instalar suas dependências através de um **gerenciador de pacotes**, o gerenciador que eu utilizei foi o **Yarn**, mas você pode utilizar o **npm** que já vem instalado no Node.
+3. Agora, antes de execurtarmos o projeto precisamos instalar suas dependências através de um **gerenciador de pacotes**, o gerenciador que eu utilizei foi o **Yarn**, mas você pode utilizar se quiser o **npm** que já vem instalado no Node.
 
-4. Com o gerenciador de pacotes instalado basta digitar pasta do projeto um dos comandos abaixo.
+4. Com o gerenciador de pacotes instalado, basta digitar dentro da pasta do projeto um dos comandos abaixo.
 
 ```
 yarn 
+```
+```
+ou
 ```
 ```
 npm install
@@ -52,7 +55,9 @@ npm install
 ```
 yarn start
 ```
-
+```
+ou
+```
 ```
 npm start
 ```
