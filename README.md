@@ -4,3 +4,7 @@
 
 - Projeto que exibe informações do usuário como foto, perfil, nome, repositórios estrelados e localização no mapa.
 
+## Ideias e linha de raciocínio
+
+1. Primeiramente antes de desenvolver qualquer aplicação eu costumo desenvolver um protótipo de alta fidelidade para que eu possa ter um modelo para me basear e desenvolver a aplicação.
+
